@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>GithubProfilePageApe</title>
+    <link rel="stylesheet" href="/css/app.css" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body>
+
+    <div class="wrapper">
+      <header>
+        <h1>GithubProfilePageApe</h1>
+      </header>
+
+      <ul>
+        <% @repos.each do |tweet| %>
+          <li><%= repo.body %></li>
+        <% end %>
+      </ul>
+
+      <form class="repo-form" action="/repo" method="post">
+        <input type="text" name="body" value="<%= params["body"] %>" placeholder="Taco Tweet Now">
+
+        <button id="tweet-btn" type="submit"> Tweet</button>
+      </form>
+    </div>
+  </body>
+</html>

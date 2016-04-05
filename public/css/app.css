@@ -1,0 +1,55 @@
+/* HTML */
+<div id="column_gap">
+<div id="menu">
+"Search GitHub"
+  <br>
+"Pull requests"
+<br>
+"Issues"
+<br>
+"Gist"
+</div>
+</div>
+
+<div id="columns">
+<a href="https://github.com/account"><img src="https://avatars2.githubusercontent.com/u/17618076?v=3&s=260" alt="account pic"></a>
+    <br>
+  Steve Fake
+  <br>
+  stevefake
+    <br>
+  <ul>
+    <li>"stevefake.github.com"
+    <li>"2016.03.29"
+    <li>  "2016.03.28"
+      <li>"my_blog"
+        <li>"hello-world"
+          <li>"2016.03.23"
+            <li>"employee_reviews_solution"
+  </ul>
+</div>
+
+/* Structure */
+
+
+div#menu {
+  background-color: #F5F5F5;
+  text-align: center;
+
+}
+
+#column_gap {
+-webkit-column-count: 4;
+-moz-column-count: 4;
+column-count: 4;
+-moz-column-gap: 5em;
+-webkit-column-gap: 5em;
+column-gap: 5em;
+}
+
+div#columns {
+  column-count:2;
+
+}
+
+/* Fonts & Colors */
