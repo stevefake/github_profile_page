@@ -1,6 +1,6 @@
-require "active_record"
+# require "active_record"
 
-module TacoTweet
-  class User < ActiveRecord::Base
+module GithubRepo
+  class User #< ActiveRecord::Base
   end
 end

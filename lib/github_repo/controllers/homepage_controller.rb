@@ -1,12 +1,12 @@
 module GithubRepo
   class Server < Sinatra::Base
     get "/" do
-      @tweets = GithubRepo::Repo.all
+    
       render_template("lib/github_repo/views/homepage.html.erb")
     end
 
     post "/repos" do
-      GithubRepo::Repo.create(body: params["body"])
+
       redirect to("/")
     end
 
