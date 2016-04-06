@@ -1,10 +1,6 @@
 module GithubRepo
   class Server < Sinatra::Base
 
-    # get '/profile' do
-    #   "Hello World?"
-    # end
-
     get "/profile" do
       render_template("lib/github_repo/views/profile.html.erb")
     end
@@ -13,7 +9,7 @@ module GithubRepo
       payload = JSON.parse(request.body.read)
       [201, GithubRepo::Repo.create(payload).to_json]
     end
-    
+
     # get '/profile' do
     #   post "/api.github.com/users/stevefake"
     # end

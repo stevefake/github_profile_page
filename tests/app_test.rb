@@ -13,10 +13,6 @@ class AppTest < Minitest::Test
 
   def test_root_page
     request = get "/"
-    # json_body = JSON.parse(request.body)
-    # assert_equal "", json_body
-    # binding.pry
-    # assert_equal "", request
     assert_equal true, request.ok?
     assert_equal false, request.i_m_a_teapot?
     assert_equal 200, request.status
@@ -32,25 +28,27 @@ class AppTest < Minitest::Test
     assert_equal true, request.body.include?("Github profile page ape")
   end
 
-  def test_get_api
+  def test_get_api_size
     api = GithubRepo::Repo.new
-    # binding.pry
+
     assert_equal 18, api.list.size
   end
 
-  def test_list_api
-    # skip
-    api = GithubRepo::Repo.new    # All data is sent and received as JSON. https://developer.github.com/v3/
-    # binding.pry                 # api.list is an array
-    assert_equal "", api.list
+  def test_list_api_names
+    api = GithubRepo::Repo.new
+    repos = api.list
+    repos_array = repos.map {|x| x["name"]}
+    assert_equal ["2016.03.08", "2016.03.10", "2016.03.14", "2016.03.15",
+      "2016.03.16", "2016.03.17", "2016.03.23", "2016.03.28", "2016.03.29",
+      "bam-", "employee_reviews_solution", "github_profile_page", "hello-world",
+      "my_blog", "stevefake.github.com", "Steves-Gist-Example",
+      "Wed_2016.03.09", "Wk1D3"], repos_array
   end
 
-# request.redirect?
 
   # type in username you want to display
   #   sinatra server must retrieve info from github
   def test_input_username_retrieves_info_from_github
-    skip
     get "https://api.github.com/users/stevefake/repos"
     post "/profile"
     assert_equal

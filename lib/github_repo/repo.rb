@@ -1,8 +1,7 @@
 module GithubRepo
   class Repo
-    # validates :body, presence: true
-
     ENDPOINT = "https://api.github.com/users/stevefake/repos"
+
     def list
       # Turn the request body into a ruby object
       response = query_list
