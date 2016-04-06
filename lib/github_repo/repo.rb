@@ -2,7 +2,7 @@ module GithubRepo
   class Repo
     # validates :body, presence: true
 
-    ENDPOINT = "https://api.github.com/users/stevefake"
+    ENDPOINT = "https://api.github.com/users/stevefake/repos"
     def list
       # Turn the request body into a ruby object
       response = query_list
@@ -15,7 +15,7 @@ module GithubRepo
       uri = URI(ENDPOINT)
       # Build client
       http = Net::HTTP.new(uri.host, uri.port)
-      # http.use_ssl = true
+      http.use_ssl = true
 
       # Build request
       req = Net::HTTP::Get.new(uri.request_uri)

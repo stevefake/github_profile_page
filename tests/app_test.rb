@@ -15,9 +15,37 @@ class AppTest < Minitest::Test
     request = get "/"
     # json_body = JSON.parse(request.body)
     # assert_equal "", json_body
-    assert_equal "", request
+    # binding.pry
+    # assert_equal "", request
+    assert_equal true, request.ok?
+    assert_equal false, request.i_m_a_teapot?
+    assert_equal 200, request.status
+    assert_equal "text/html;charset=utf-8", request.content_type
+    assert_equal true, request.body.include?("Github root page ape")
   end
 
+  def test_we_have_a_profile_page
+    request = get "/profile"
+    assert_equal true, request.ok?
+    assert_equal 200, request.status
+    assert_equal "text/html;charset=utf-8", request.content_type
+    assert_equal true, request.body.include?("Github profile page ape")
+  end
+
+  def test_get_api
+    api = GithubRepo::Repo.new
+    # binding.pry
+    assert_equal 18, api.list.size
+  end
+
+  def test_list_api
+    # skip
+    api = GithubRepo::Repo.new    # All data is sent and received as JSON. https://developer.github.com/v3/
+    # binding.pry                 # api.list is an array
+    assert_equal "", api.list
+  end
+
+# request.redirect?
 
   # type in username you want to display
   #   sinatra server must retrieve info from github
@@ -25,7 +53,7 @@ class AppTest < Minitest::Test
     skip
     get "https://api.github.com/users/stevefake/repos"
     post "/profile"
-    assert_equal 
+    assert_equal
   end
 
 
@@ -42,17 +70,6 @@ class AppTest < Minitest::Test
   #   assert_equal 32, json_body["token"].size
   # end
   #
-  def test_get_api
-    response = get "/api.github.com/users/stevefake"
-    # json = JSON.parse(response.body)
-    assert_equal 200, response.status
-  end
-
-  def test_repo_can_list_repos
-    skip
-    api = GithubRepo::Repo.new
-    assert_equal "", api.list.size
-  end
   #
   # def test_gets_tweets_will_tell_someone_to_go_away
   #   response = get "/api/tweets"
