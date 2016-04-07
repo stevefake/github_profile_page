@@ -1,5 +1,5 @@
 /* HTML */
-/*<div id="column_gap">
+<div id="column_gap">
 <div id="menu">
 "Search GitHub"
   <br>
@@ -35,7 +35,7 @@ body {
   text-align: center;
 }
 
-/*div#column_gap {
+div#column_gap {
 -webkit-column-count: 4;
 -moz-column-count: 4;
 column-count: 4;
@@ -46,11 +46,11 @@ column-gap: 5em;
 
 div#columns {
   column-count:2;
-}*/
+}
 
 /* Fonts & Colors */
 
-/*div#menu {
+div#menu {
   background-color: #F5F5F5;
   text-align: center;
 }*/

@@ -6,18 +6,12 @@
     <link rel="stylesheet" href="/css/app.css" media="screen" title="no title" charset="utf-8"> <!--requires in the css file-->
   </head>
   <body>
-
-    <div class="wrapper">
-      <header>
-        <h1>Github root page ape</h1>
-      </header>
-
-
-      <form class="repo-form" action="/profile" method="post">
-        <input type="text" name="body" value="<%= params["body"] %>" placeholder="Username">
-
-        <button id="repos-btn" type="submit"> Repositories</button>
-      </form>
-    </div>
+    <header>
+      <h1>Github root page ape</h1>
+    </header>
+    <form class="repo-form" action="/profile" method="post">
+      <input type="text" name="username" value="<%= params["username"] %>" placeholder="Username">
+      <button id="repos-btn" type="submit">Repositories</button>
+    </form>
   </body>
 </html>

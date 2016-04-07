@@ -29,13 +29,13 @@ class AppTest < Minitest::Test
   end
 
   def test_get_api_size
-    api = GithubRepo::Repo.new
-
+    api = GithubRepo::Repo.new("stevefake")
+# binding.pry
     assert_equal 18, api.list.size
   end
 
   def test_list_api_names
-    api = GithubRepo::Repo.new
+    api = GithubRepo::Repo.new("stevefake")
     repos = api.list
     repos_array = repos.map {|x| x["name"]}
     assert_equal ["2016.03.08", "2016.03.10", "2016.03.14", "2016.03.15",
@@ -45,13 +45,13 @@ class AppTest < Minitest::Test
       "Wed_2016.03.09", "Wk1D3"], repos_array
   end
 
-
   # type in username you want to display
   #   sinatra server must retrieve info from github
   def test_input_username_retrieves_info_from_github
-    get "https://api.github.com/users/stevefake/repos"
-    post "/profile"
-    assert_equal
+    skip
+    # get "/"
+    # post "/profile"
+    assert_equal "https://api.github.com/users/stevefake/repos", ""
   end
 
 

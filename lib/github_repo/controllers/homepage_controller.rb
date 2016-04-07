@@ -5,11 +5,6 @@ module GithubRepo
       render_template("lib/github_repo/views/homepage.html.erb")
     end
 
-    # post "/repos" do
-    #
-    #   redirect to("/")
-    # end
-
     def render_template(template_path)
       template = ERB.new(File.read(template_path))
       template.result(binding)

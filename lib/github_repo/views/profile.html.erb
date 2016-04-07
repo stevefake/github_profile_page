@@ -6,18 +6,29 @@
     <link rel="stylesheet" href="/css/app.css" media="screen" title="no title" charset="utf-8"> <!--requires in the css file-->
   </head>
   <body>
-
-    <div class="wrapper">
-      <header>
-        <h1>Github profile page ape</h1>
-      </header>
-
-       "Repos for <%= @body %>"
-      <!-- <form class="repo-form" action="/profile" method="post">
-        <input type="text" name="body" value="<%= params["body"] %>" placeholder="Username">
-
-        <button id="repos-btn" type="submit"> Repositories</button> -->
-      <!-- </form> -->
+    <div id="column_gap">
+    <div id="menu">
+    "Search GitHub"
+    "Pull requests"
+    "Issues"
+    "Gist"
     </div>
+    </div>
+    <header>
+      <h1>Github profile page ape</h1>
+    </header>
+      <!-- </form> -->
+       "Repos for  <%= params["username"] %>"
+       <ul>
+         <%= api = Repo.new(params["username"])
+           repos = api.list
+           repos_array = repos.map {|x| x["name"] + "<li>"}
+            %>
+         <li>
+         <li> <!-- repo 2 -->
+       </ul>
+     <div id="columns">
+    <a href="https://github.com/account"><img src="https://avatars2.githubusercontent.com/u/#" alt="account pic"></a>
+    <br>
   </body>
 </html>
